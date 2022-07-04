@@ -25,32 +25,6 @@ export default function RecipeList () {
 
  console.log(allRecipes);
 
-
-// useEffect(() => {   
-// this is an axios request to communicate to the database
-// const getRecipes = async (e) =>{
-//     try{
-//         e.preventDefault(e);
-//         const res = await axios.get(
-//             'http://localhost:7000/fetch', {recipes} 
-//         );
-
-        // assigning a variable to the feedback from the server
-//         const { data } = res;
-//         console.log(data);
-
-//         setRecipes([data])
-        
-//     } catch(error) { 
-//         console.log(error);
-//     }
-
-// }
-
-    //  getRecipes()
-
-    // }, [recipes])
-
     
 
     
@@ -64,10 +38,9 @@ export default function RecipeList () {
             <RecipeForm />
 
             <div className= {formStyle.wrap}>
-            
-           
+          
                     {
-                      allRecipes.map((recipe, key) => (
+                     Array.from(allRecipes).map((recipe, key) => (
                    
                       <ListRecipe  recipe = {recipe} key = { key }  />
                

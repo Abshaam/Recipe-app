@@ -10,50 +10,50 @@ import { addingRecipe } from '../store/slices/recipeSlice';
 // import { fetchRecipes } from '../store/slices/recipeSlice';
 
 
-export default function RecipeForm () {
+export default function RecipeForm() {
     const [text, setText] = useState('');
 
     const dispatch = useDispatch()
 
-    
-      // this is an axios request to communicate to the database
-// const addRecipes = async (e) =>{
-//     try{
-//         e.preventDefault();
-//         const res = await axios.post(
-//         'http://localhost:7000/add',{
-//             text
-//         },
-           
-//         );
 
-        // assigning a variable to the feedback from the server
-        // const {data} = res;
-        // console.log(data);
-        // setText(' ');
+    // this is an axios request to communicate to the database
+    // const addRecipes = async (e) =>{
+    //     try{
+    //         e.preventDefault();
+    //         const res = await axios.post(
+    //         'http://localhost:7000/add',{
+    //             text
+    //         },
 
-        
-//     } catch(error) { 
-//         console.log(error);
-//     }
+    //         );
 
-// }
-
-// const addrecipe = (e) => {
-
-//     e.preventDefault();
-//     dispatch(addRecipe(text))
-//     setText(' ')
-// };
-
-const addrecipe = (e) => {
-    e.preventDefault();
-    dispatch( addingRecipe())
-    setText(' ')
-}
+    // assigning a variable to the feedback from the server
+    // const {data} = res;
+    // console.log(data);
+    // setText(' ');
 
 
-// dispatch(fetchRecipes())
+    //     } catch(error) { 
+    //         console.log(error);
+    //     }
+
+    // }
+
+    // const addrecipe = (e) => {
+
+    //     e.preventDefault();
+    //     dispatch(addRecipe(text))
+    //     setText(' ')
+    // };
+
+    const addrecipe = (e) => {
+        e.preventDefault();
+        dispatch(addingRecipe(text))
+        setText(' ')
+    }
+
+
+    // dispatch(fetchRecipes())
 
 
     return (
@@ -67,24 +67,24 @@ const addrecipe = (e) => {
             >
                 <Row>
                     <Col>
-                    <form onSubmit={addrecipe}>
-                        <input className={formStyle.recipe_input}
-                         type="text" 
-                        placeholder=" Type a recipe"
-                            value={text}
-                            onChange={(e) => setText(e.target.value)}
-                        />
-                           
+                        <form onSubmit={addrecipe}>
+                            <input className={formStyle.recipe_input}
+                                type="text"
+                                placeholder=" Type a recipe"
+                                value={text}
+                                onChange={(e) => setText(e.target.value)}
+                            />
 
-    
-                        {/* button */}
-                        <button
-                            className={formStyle.recipe_button}
-                             
-                            type ='submit'
-                           
-                        > Add Recipe
-                        </button>
+
+
+                            {/* button */}
+                            <button
+                                className={formStyle.recipe_button}
+
+                                type='submit'
+
+                            > Add Recipe
+                            </button>
 
                         </form>
 

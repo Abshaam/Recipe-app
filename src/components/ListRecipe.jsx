@@ -3,7 +3,8 @@ import formStyle from '../css/recipe.module.css'
 import Card from 'react-bootstrap/Card';
 import pic2 from '../images/calender.avif'
 // import axios from 'axios';
-import { removeRecipe, updateRecipe } from '../store/slices/recipeSlice';
+// import { removeRecipe, updateRecipe } from '../store/slices/recipeSlice';
+import { updatingRecipe, deletingRecipe } from '../store/slices/recipeSlice';
 import { useDispatch } from 'react-redux/es/hooks/useDispatch';
 // import { useSelector } from "react-redux/es/hooks/useSelector";
 
@@ -68,7 +69,9 @@ const ListRecipe = ({ recipe }) => {
     // memoization
     // const allRecipes = useSelector((state) => state.recipe.recipeList);
 
-    // console.log(allRecipes);
+    console.log("recipe", recipe);
+
+    
 
 
 
@@ -76,53 +79,13 @@ const ListRecipe = ({ recipe }) => {
 
 
     const updaterecipe = (id) => {
-        dispatch(updateRecipe(id))
+        dispatch(updatingRecipe(id))
     }
+    
 
     const removerecipe = (id) => {
-        dispatch(removeRecipe(id))
+        dispatch(deletingRecipe(id))
     }
-
-
-    // this is an axios request to communicate to the database
-    // const getRecipes = async (e) =>{
-    //     try{
-    //         e.preventDefault();
-    //         const res = await axios.get(
-    //             "",
-
-    //         );
-
-    //         // assigning a variable to the feedback from the server
-    //         const recipe = res;
-    //         console.log(recipe);
-
-
-    //     } catch(error) { 
-    //         console.log(error);
-    //     }
-
-    // }
-
-    // this is an axios request to communicate to the database
-    //   const deleteRecipes = async (e) =>{
-    //     try{
-    //         if(e) e.preventDefault();
-    //         const res = await axios.get(
-    //             "/delete/:id",
-
-    //         );
-
-    // assigning a variable to the feedback from the server
-    //         const delRecipe = res;
-    //         console.log(delRecipe);
-
-
-    //     } catch(error) { 
-    //         console.log(error);
-    //     }
-
-    // }
 
 
     return (
@@ -138,7 +101,7 @@ const ListRecipe = ({ recipe }) => {
                                 <Card>
                                     <Card>
                                         <Card.Body>
-                                            {recipe.text}
+                                            { recipe.text }
                                         </Card.Body>
                                     </Card>
                                 </Card>
